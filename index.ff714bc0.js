@@ -1,2 +1,0 @@
-const e=document.querySelector(".event-container");!async function(){!function(n){const t=n.map((e=>'<li class="event-item"><p>${event.name}</p></li>')).join("");e.innerHTML=t}((await async function(){try{const e=await fetch("${BASE_URL}?apikey=${API_KEY}&size=20");if(!e.ok)throw new Error("HTTP error! status: ${response.status}");return await e.json()}catch(e){console.error("Error fetching events:",e)}}())._embedded.events)}();
-//# sourceMappingURL=index.ff714bc0.js.map
