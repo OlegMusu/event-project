@@ -6,5 +6,31 @@
 }
 
 .event-item {
-    border: 3px solid rgb(0, 0, 0);
+    width: 196px;
+    background-color: black;
+}
+
+.event-img {
+    width: 180px;
+    height: 227px;
+    display: block;
+    border-radius: 50px 0;
+}
+
+.event-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #DC56C5;
+}
+
+.event-date {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.event-place {
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
 }

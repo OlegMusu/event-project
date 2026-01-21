@@ -1,11 +1,12 @@
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 const API_KEY = 'UqmVwuGncTrUR5qhai7UAAi3449oMNGt';
+pageLimit = 20;
 
 const eventContainer = document.querySelector('.event-container');
 
 async function getEvents() {
     try {
-        const response = await fetch('${BASE_URL}?apikey=${API_KEY}&size=20');
+        const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&classificationName=music&page=0&size=${pageLimit}&source=universe`);
         if (!response.ok) {
             throw new Error('HTTP error! status: ${response.status}');
         }
@@ -14,17 +15,35 @@ async function getEvents() {
     } catch (error) {
         console.error('Error fetching events:', error);
     };
-};
+}
+
+function getEventImg(event) {
+    const img =
+        event.images.find(img => img.ratio === '4_3') ||
+        event.images.find(img => img.ratio === '3_2') ||
+        event.images[0];
+        return img.url;
+}
 
 function renderEvents(events) {
     const markap = events.map((event) => {
-        return '<li class="event-item"><p>${event.name}</p></li>'
+
+        const imgUrl = getEventImg(event);
+
+        return `<li class="event-item">
+
+        <img class="event-img" alt="event-img" src="${imgUrl}"><img/>
+        <p class="event-name">${event.name}</p>
+        <p class="event-date">${event.dates.start.localDate}</p>
+        <p class="event-place">${event._embedded.venues[0].name}</p>
+        </li>`
     }).join('')
     eventContainer.innerHTML = markap
 }
 
 async function startApp() {
     const events = await getEvents();
+    console.log(events._embedded.events);
     renderEvents(events._embedded.events);
 }
 
