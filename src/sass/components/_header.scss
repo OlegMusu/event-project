@@ -1,0 +1,24 @@
+.countries-block{
+    position: absolute;
+    top: 44px;
+    right: 20px;
+    width: 90%;
+    display: none;
+    max-height: 250px;
+    background-color: #aea9a9;
+    overflow: auto;
+
+//     @media screen and (min-width: $desktop) {
+//       max-height: 270px;
+//   }
+}
+
+.countries-block.is-open {
+    display: block;
+}
+
+.country-item{
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid black;
+}

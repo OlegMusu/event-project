@@ -1,8 +1,36 @@
+import countries from './countries.json'
+
+const inputCountries = document.querySelector('.input-countries');
+const btnOpenCountries = document.querySelector('.btn-arrow-down');
+const countriesBlock = document.querySelector('.countries-block');
+
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 const API_KEY = 'UqmVwuGncTrUR5qhai7UAAi3449oMNGt';
-pageLimit = 20;
+const pageLimit = 20;
 
 const eventContainer = document.querySelector('.event-container');
+
+console.log(countries);
+
+function handleBtnClick() {
+    countriesBlock.classList.toggle('is-open');
+    if (!countriesBlock.classList.contains('is-open')) return; 
+    countries.forEach(country => {
+        const countryItem = document.createElement('div');
+        countryItem.textContent = country.name;
+        countryItem.classList.add('country-item');
+
+        countryItem.addEventListener('click', () => {
+            inputCountries.value = country.name;
+            // Додати код країни
+            handleCountrySelect(country.code);
+            countriesBlock.classList.remove('is-open');
+        });
+        countriesBlock.appendChild(countryItem);
+    });
+};
+
+btnOpenCountries.addEventListener('click', handleBtnClick);
 
 async function getEvents() {
     try {
