@@ -1,13 +1,19 @@
+.main {
+    background-image: url('.././images/Background.png');
+}
+
 .event-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 4px;
-    row-gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 56px;
+    bottom: 59px;
+    position: relative;
 }
 
 .event-item {
     width: 196px;
-    background-color: black;
+    text-align: center;
 }
 
 .event-img {
@@ -15,22 +21,42 @@
     height: 227px;
     display: block;
     border-radius: 50px 0;
+    margin-bottom: 3px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &::after {
+        background-image: url('.././images/Rectangle.png');
+        background-repeat: no-repeat;
+        background-position: right top;
+    }
 }
 
 .event-name {
     font-size: 16px;
     font-weight: 700;
     color: #DC56C5;
+    margin: 3px 0;
 }
 
 .event-date {
     font-size: 16px;
     font-weight: 400;
     color: #FFFFFF;
+    margin-bottom: 3px;
 }
 
 .event-place {
     font-size: 14px;
     font-weight: 600;
     color: #FFFFFF;
+
+    &::before {
+        content: "";
+        vertical-align: middle;
+        width: 7px;
+        height: 10px;
+        background-image: url('.././images/Vector.png');
+        background-size: contain;
+    }
 }

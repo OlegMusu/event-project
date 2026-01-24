@@ -59,8 +59,9 @@ function renderEvents(events) {
         const imgUrl = getEventImg(event);
 
         return `<li class="event-item">
-
-        <img class="event-img" alt="event-img" src="${imgUrl}"><img/>
+        <div class="event-img-box">
+            <img class="event-img" alt="event-img" src="${imgUrl}">
+        </div>
         <p class="event-name">${event.name}</p>
         <p class="event-date">${event.dates.start.localDate}</p>
         <p class="event-place">${event._embedded.venues[0].name}</p>
