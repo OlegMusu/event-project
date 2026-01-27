@@ -1,5 +1,7 @@
 import countries from './countries.json'
 
+import { toggleModal } from './js/modal';
+
 const inputCountries = document.querySelector('.input-countries');
 const btnOpenCountries = document.querySelector('.btn-arrow-down');
 const countriesBlock = document.querySelector('.countries-block');
@@ -58,17 +60,47 @@ function renderEvents(events) {
 
         const imgUrl = getEventImg(event);
 
-        return `<li class="event-item">
-        <div class="event-img-box">
-            <img class="event-img" alt="event-img" src="${imgUrl}">
+        return `<li class="event-item" data-id="${event.id}">
+        <div class="event-img-decorate">
+            <div class="event-img-box">
+                <img class="event-img" alt="event-img" src="${imgUrl}">
+            </div>
+            <p class="event-name">${event.name}</p>
+            <p class="event-date">${event.dates.start.localDate}</p>
+            <p class="event-place">${event._embedded.venues[0].name}</p>
         </div>
-        <p class="event-name">${event.name}</p>
-        <p class="event-date">${event.dates.start.localDate}</p>
-        <p class="event-place">${event._embedded.venues[0].name}</p>
         </li>`
     }).join('')
     eventContainer.innerHTML = markap
 }
+
+async function getEventById(id) {
+    try {
+        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${id}.json?apikey=${API_KEY}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error ${response.status}`);
+        }
+        const event = await response.json()
+        return event
+    }
+    catch(error) {
+        console.error(error)
+    }
+}
+
+// modal
+eventContainer.addEventListener('click', async (e) => {
+    const card = e.target.closest('.event-item');
+    if (!card) return;
+    const eventId = card.dataset.id
+    try {
+        const event = await getEventById(eventId)
+        toggleModal()
+    } 
+    catch(error) {
+        console.error(error)
+    }
+})
 
 async function startApp() {
     const events = await getEvents();
