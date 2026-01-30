@@ -4,8 +4,12 @@
 
 .event-container {
     display: flex;
-    gap: 14px;
     flex-wrap: wrap;
+    column-gap: 25px;
+    row-gap: 39px;
+    position: relative;
+    top: -60px;
+    justify-content: center;
 
     @media screen and (min-width: $tablet) {
         column-gap: 27px;
@@ -39,13 +43,20 @@
     &::after {
         content: "";
         display: block;
-        width: 153px;
-        height: 143px;
+        width: 108px;
+        height: 101px;
         position: absolute;
-        right: -14px;
-        top: -13px;
+        right: -10px;
+        top: -9px;
         border-radius: 50px 0;
-        border: 1px solid #ff00b3;
+        border: 1px solid #DC56C54D;
+
+        @media (min-width: $tablet) { 
+            top: -13px; 
+            right: -14px; 
+            width: 153px; 
+            height: 143px;
+        } 
     }
 }
 
@@ -67,21 +78,47 @@
 }
 
 .event-name {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: #DC56C5;
     margin: 3px 0;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 16px;
+    }
 }
 
 .event-date {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     color: #FFFFFF;
     margin-bottom: 3px;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 16px;
+    }
+}
+
+.event-place-box {
+    justify-content: center;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.vector-place {
+    background-image: url(.././images/Vector.png);
+    width: 7px;
+    height: 10px;
+    background-size: contain;
 }
 
 .event-place {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     color: #FFFFFF;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 14px;
+    }
 }

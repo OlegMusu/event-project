@@ -67,7 +67,10 @@ function renderEvents(events) {
             </div>
             <p class="event-name">${event.name}</p>
             <p class="event-date">${event.dates.start.localDate}</p>
-            <p class="event-place">${event._embedded.venues[0].name}</p>
+            <div class="event-place-box">
+                <div class="vector-place"></div>
+                <p class="event-place">${event._embedded.venues[0].name}</p>
+            </div>
         </div>
         </li>`
     }).join('')
