@@ -20,44 +20,47 @@ export function renderModal(event) {
 
   return modalContent.innerHTML = 
    `<div class="modal-img-box">
-      <img class="modal-img" src="${img.url}" alt="${event.name}">
+      <img class="modal-img-circle" src="${img.url}" alt="${event.name}">
     </div>
-
+  <div class="modal-info-box">
     <div class="modal-left-img">
       <img class="modal-img" src="${img.url}" alt="${event.name}">
     </div>
-
     <div class="modal-right-info">
       <ul class="modal-event-info">
-        <li class="modal-event-name">
-          <h2 class="modal-event-name">Info:</h2>
-          <p>${event.name}</p>
+        <li class="modal-event-title">
+          <h2 class="modal-event-name">Info</h2>
+          <p class="modal-event-description">${event.name}</p>
         </li>
-        <li class="modal-event-name">
-          <h2 class="modal-event-name">When:</h2>
-          <p>${event.dates.start.localDate}</p>
+        <li class="modal-event-title">
+          <h2 class="modal-event-name">When</h2>
+          <p class="modal-event-description">${event.dates.start.localDate}</p>
         </li>
-        <li class="modal-event-name">
-          <h2 class="modal-event-name">Where:</h2>
-          <p>${event._embedded.venues[0].name}</p>
+        <li class="modal-event-title">
+          <h2 class="modal-event-name">Where</h2>
+          <p class="modal-event-description">${event._embedded.venues[0].name}</p>
         </li>
-        <li class="modal-event-name">
-          <h2 class="modal-event-name">Who:</h2>
-          <p>${event.name}</p>
+        <li class="modal-event-title">
+          <h2 class="modal-event-name">Who</h2>
+          <p class="modal-event-description">${event.name}</p>
         </li>
-        <li class="modal-event-name">
-          <h2 class="modal-event-name">Price:</h2>
+        <li class="modal-event-title">
+          <h2 class="modal-event-name">Price</h2>
           <ul class="modal-price-list">
             <li class="modal-price-item">
-              <p>Standart $${event.priceRanges ? event.priceRanges[0].min : 'N/A'} UAH</p>
+              <p class="modal-price-description">Standart ${event.priceRanges ? event.priceRanges[0].min : 'N/A'} UAH</p>
               <button class="btn-buy-tickets">Buy tickets</button>
             </li>
             <li class="modal-price-item">
-              <p>VIP $${event.priceRanges ? event.priceRanges[0].max : 'N/A'} UAH</p>
+              <p class="modal-price-description">VIP ${event.priceRanges ? event.priceRanges[0].max : 'N/A'} UAH</p>
               <button class="btn-buy-tickets">Buy tickets</button>
             </li>
           </ul>
         </li>
       </ul>
-    </div>`
+    </div>
+    </div>
+    <div class="modal-more-from-author-box">
+    <button class="btn-more-from-author">MORE FROM THIS AUTHOR</button>
+    </div>`;
 }
