@@ -1,9 +1,19 @@
 .header-scene {
     background-image: url('.././images/pic.png');
-    background-size: 100%;
-    height: 640px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 320px;
     text-align: center;
     padding: 40px 0;
+
+    @media screen and (min-width: $tablet) {
+        height: 364px;
+    }
+
+    @media screen and (min-width: $desctop) {
+        height: 620px;
+    }
 }
 
 .header-title {

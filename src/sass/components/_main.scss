@@ -8,7 +8,7 @@
     column-gap: 25px;
     row-gap: 39px;
     position: relative;
-    top: -60px;
+    top: -36px;
     justify-content: center;
 
     @media screen and (min-width: $tablet) {
@@ -19,6 +19,7 @@
     @media screen and (min-width: $desctop) {
         column-gap: 70px;
         row-gap: 63px;
+        top: -60px;
     }
 }
 
