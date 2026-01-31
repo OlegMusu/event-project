@@ -23,27 +23,37 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -40%);
-  width: 930px;
+  width: 272px;
   padding: 62px 30px;
   background-color: #FFF2FD;
   border-radius: 300px 0 300px;
+
+    @media screen and (min-width: $tablet) {
+        width: 595px;
+    }
+
+    @media screen and (min-width: $desctop) {
+        width: 942px;
+    }
 }
 
 .btn-modal-close {
   position: absolute;
-  top: -15px;
-  right: 25px;
-  width: 95px;
-  height: 50px;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
   background-color: rgb(226, 83, 83);
   font-weight: 400;
-  font-size: 25px;
+  font-size: 24px;
   color: rgb(109, 0, 0);
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   transition: transform 0.5s, box-shadow 0.5s ease;
-
 
   &:hover {
     transform: scale(1.15);
@@ -53,4 +63,44 @@
   &:active {
     transform: scale(0.95);
   }
+
+  .text-close {
+    display: none;
+    font-size: 25px;
+  }
+
+  .icon-close {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+    @media screen and (min-width: $tablet) {
+        width: 80px;
+        height: 40px;
+        top: -15px;
+        right: 25px;
+        .text-close {
+            display: block;
+        }
+
+        .icon-close {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: $desctop) {
+        width: 95px;
+        height: 50px;
+    }
+}
+
+.modal-img-box {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.modal-img {
+  max-width: 102px;
+  height: auto;
 }
