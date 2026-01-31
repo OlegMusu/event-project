@@ -1,6 +1,6 @@
 import countries from './countries.json'
 
-import { toggleModal } from './js/modal';
+import { toggleModal, renderModal } from './js/modal';
 
 const inputCountries = document.querySelector('.input-countries');
 const btnOpenCountries = document.querySelector('.btn-arrow-down');
@@ -98,7 +98,8 @@ eventContainer.addEventListener('click', async (e) => {
     const eventId = card.dataset.id
     try {
         const event = await getEventById(eventId)
-        toggleModal()
+        renderModal(event);
+        toggleModal();
     } 
     catch(error) {
         console.error(error)
