@@ -25,7 +25,6 @@
 
 .event-item {
     width: 128px;
-    text-align: center;
     cursor: pointer;
     
     @media screen and (min-width: $tablet) {
@@ -79,6 +78,7 @@
 }
 
 .event-name {
+    text-align: center;
     font-size: 14px;
     font-weight: 700;
     color: #DC56C5;
@@ -90,6 +90,7 @@
 }
 
 .event-date {
+    text-align: center;
     font-size: 14px;
     font-weight: 400;
     color: #FFFFFF;
@@ -104,7 +105,7 @@
     justify-content: center;
     display: flex;
     gap: 3px;
-    align-items: center;
+    align-items: baseline;
 }
 
 .vector-place {

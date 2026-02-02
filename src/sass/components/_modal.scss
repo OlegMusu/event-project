@@ -133,6 +133,7 @@
   text-align: center;
 
     @media screen and (min-width: $tablet) {
+      text-align: left;
       display: flex;
       column-gap: 60px;
     }

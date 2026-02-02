@@ -1,13 +1,19 @@
 <section class="header-scene">
     <div class="container">
         <h1 class="header-title">FIND BEST EVENTS AROUND THE WORLD</h1>
+        <div class="header-controls">
         <div class="set-search">
-            <input type="text" name="search" id="header-search" placeholder="Start search" />
+            <input type="text" name="search" class="header-search" id="header-search" placeholder="Start searching" />
         </div>
         <div class="set-countries">
-            <input type="text" class="input-countries"/>
-            <button class="btn-arrow-down" type="button">icon</button> 
+            <input type="text" class="input-countries" placeholder="Choose country"/>
+            <button class="btn-arrow-down" type="button">
+                <svg class="icon-arrow-down">
+                    <use href="./images/icon-arrow-down.svg" width="20" height="20"></use>
+                </svg>
+            </button> 
             <div class="countries-block">  
+        </div>
         </div>
     </div>
 </section>
