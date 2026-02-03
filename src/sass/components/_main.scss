@@ -25,7 +25,12 @@
 
 .event-item {
     width: 128px;
+    transition: transform 0.4s ease-in-out;
     cursor: pointer;
+
+    &:hover {
+        transform: translateY(15px) scale(1.05);
+    }
     
     @media screen and (min-width: $tablet) {
         width: 180px;
@@ -37,7 +42,7 @@
     width: 128px;
 
     @media screen and (min-width: $tablet) {
-        width: 180px;
+        width: 170px;
     }
 
     &::after {

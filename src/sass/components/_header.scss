@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center;
     padding-top: 78px;
-    padding-bottom: 52px;
+    padding-bottom: 112px;
     text-align: center;
 
     @media screen and (min-width: $tablet) {
@@ -13,7 +13,7 @@
     }
 
     @media screen and (min-width: $desctop) {
-        padding-bottom: 133px;
+        padding-bottom: 192px;
     }
 }
 
@@ -22,6 +22,7 @@
     font-size: 18px;
     max-width: 212px;
     color: #DC56C5;
+    margin: 0 auto;
     text-transform: uppercase;
 
     @media screen and (min-width: $tablet) {
@@ -40,13 +41,18 @@
     gap: 25px;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 25px;
     display: flex;
 
     @media screen and (min-width: $tablet) {
         display: flex;
         flex-direction: row;
+        margin-top: 27px;
         gap: 30px;
+    }
+
+    @media screen and (min-width: $desctop) {
+        margin-top: 52px;
     }
 }
 
@@ -67,7 +73,7 @@
 
 .countries-block {
     position: absolute;
-    z-index: 50;
+    z-index: 2;
 }
 
 .countries-block.is-open {
@@ -105,7 +111,7 @@
 
 .set-countries {
     position: relative;
-    z-index: 20;
+    z-index: 1;
 }
 
 .input-countries,
@@ -123,7 +129,7 @@
 .icon-arrow-down {
     position: absolute;
     width: 24px;
-    height: 13px;
+    height: 16px;
     right: 18px;
     top: 50%;
     transform: translateY(-50%);

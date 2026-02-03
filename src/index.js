@@ -6,13 +6,11 @@ const inputCountries = document.querySelector('.input-countries');
 const btnOpenCountries = document.querySelector('.btn-arrow-down');
 const countriesBlock = document.querySelector('.countries-block');
 
+const eventContainer = document.querySelector('.event-container');
+
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 const API_KEY = 'UqmVwuGncTrUR5qhai7UAAi3449oMNGt';
 const pageLimit = 20;
-
-const eventContainer = document.querySelector('.event-container');
-
-console.log(countries);
 
 function handleBtnClick() {
     countriesBlock.classList.toggle('is-open');
@@ -38,7 +36,7 @@ async function getEvents() {
     try {
         const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&classificationName=music&page=0&size=${pageLimit}&source=universe`);
         if (!response.ok) {
-            throw new Error('HTTP error! status: ${response.status}');
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         return data;
