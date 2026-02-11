@@ -38,7 +38,7 @@ function handleBtnClick() {
 
 btnOpenCountries.addEventListener('click', handleBtnClick);
 
-// Перевіряє чи схожі нахви країни
+// Перевіряє чи схожі назви країни
 function handleCountrySelect(countryName) {
     const filltered = allEvents.filter(event => {
         const eventCountry = event._embedded?.venues?.[0]?.country?.name;
@@ -51,6 +51,17 @@ function handleCountrySelect(countryName) {
         renderEmpty();
     }
 };
+
+import emptyImg from './images/event-empty-img.png';
+
+function renderEmpty() {
+    eventContainer.innerHTML = `
+    <li class="event-empty">
+        <img class="event-empty-img" alt="event empty img" src="${emptyImg}"/>
+        <h2 class="event-empty-text">Noting found</h2>
+    </li>
+    `;
+}
 
 // input country
 inputCountries.addEventListener('input', () => {

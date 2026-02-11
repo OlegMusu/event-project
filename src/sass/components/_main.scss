@@ -129,3 +129,49 @@
         font-size: 14px;
     }
 }
+
+// empty
+
+.event-empty {
+    background-color: none;
+    border: 2px solid #212121;
+    border-radius: 100px 0;
+    padding: 40px 15px;
+    margin-top: 15%;
+    margin-bottom: 25%;
+
+    @media screen and (min-width: $desctop) {
+        border: none;
+        margin-top: 10%;
+    }
+}
+
+.event-empty-img {
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @media screen and (min-width: $tablet) {
+        width: 185px;
+    }
+
+    @media screen and (min-width: $desctop) {
+        width: 235px;
+    }
+}
+
+.event-empty-text {
+    color: #DC56C5;
+    font-weight: 500;
+    font-size: 25px;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $tablet) {
+        font-size: 30px;
+    }
+
+    @media screen and (min-width: $desctop) {
+        font-size: 45px;
+    }
+}
