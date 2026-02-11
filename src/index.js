@@ -52,6 +52,7 @@ function handleCountrySelect(countryName) {
     }
 };
 
+// input country
 inputCountries.addEventListener('input', () => {
     const value = inputCountries.value.toLowerCase().trim();
     countriesBlock.innerHTML = '';
