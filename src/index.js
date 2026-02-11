@@ -2,10 +2,14 @@ import countries from './countries.json'
 
 import { toggleModal, renderModal } from './js/modal';
 
+const helperBlock = document.querySelector('.search-helper');
+
 const inputCountries = document.querySelector('.input-countries');
 const btnOpenCountries = document.querySelector('.btn-arrow-down');
 const countriesBlock = document.querySelector('.countries-block');
-const btnLoad = document.querySelector('.btn-load')
+const btnLoad = document.querySelector('.btn-load');
+const searchInp = document.querySelector('.header-search');
+const searchBtn = document.querySelector('.search-btn');
 
 const eventContainer = document.querySelector('.event-container');
 
@@ -89,6 +93,53 @@ inputCountries.addEventListener('input', () => {
             countriesBlock.classList.remove('is-open');
         });
         countriesBlock.appendChild(div);
+    });
+});
+
+// Кнопка search
+
+searchBtn.addEventListener('click', () => {
+    const value = searchInp.value.toLowerCase().trim();
+    if (!value) {
+        renderEvents(allEvents);
+        return;
+    }
+    const filtered = allEvents.filter(event =>
+        event.name.toLowerCase().includes(value)
+    );
+    if (!filtered.length) {
+        renderEmpty();
+        return;
+    }
+    renderEvents(filtered)
+});
+
+// Вспливучі підказки при вводі назви концерту
+searchInp.addEventListener('input', () => {
+    const value = searchInp.value.toLowerCase().trim();
+    helperBlock.innerHTML = '';
+    if (!value) {
+        helperBlock.classList.remove('is-open');
+        return;
+    }
+    const machedEvents = allEvents.filter(event =>
+        event.name.toLowerCase().includes(value)
+    );
+    if (!machedEvents.length) {
+        helperBlock.classList.remove('is-open')
+        return;
+    }
+    helperBlock.classList.add('is-open');
+    machedEvents.forEach(event => {
+        const item = document.createElement('div')
+        item.textContent = event.name;
+        item.classList.add('search-item')
+        item.addEventListener('click', () => {
+            searchInp.value = event.name;
+            renderEvents([event]);
+            helperBlock.classList.remove('is-open');
+        });
+        helperBlock.appendChild(item);
     });
 });
 

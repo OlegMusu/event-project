@@ -8,6 +8,7 @@
     column-gap: 25px;
     row-gap: 39px;
     position: relative;
+    min-height: 60vh;
     top: -36px;
     justify-content: center;
 
@@ -138,7 +139,6 @@
     border-radius: 100px 0;
     padding: 40px 15px;
     margin-top: 15%;
-    margin-bottom: 25%;
 
     @media screen and (min-width: $desctop) {
         border: none;
