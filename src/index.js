@@ -12,7 +12,7 @@ const eventContainer = document.querySelector('.event-container');
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 const API_KEY = 'UqmVwuGncTrUR5qhai7UAAi3449oMNGt';
 let pageLimit = 20;
-let page = 1;
+let page = 0;
 
 let allEvents = [];
 
