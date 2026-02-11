@@ -87,8 +87,6 @@
     scrollbar-width: none;
 
     @media screen and (min-width: $desctop) {
-        right: 5%;
-        width: 200%;
         max-height: 205px;
     }
 }
@@ -105,7 +103,7 @@
   height: 40px;
   border-radius: 20px;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
 }
 
@@ -116,20 +114,22 @@
 
 .input-countries,
 .header-search {
+    width: 270px;
+    height: 40px;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 20px;
     font-size: 18px;
     color: #939393;
     font-weight: 400;
-    background: none;
-    border: none;
-    outline: none;
     padding: 10px 30px;
-    justify-content: center;
-}
+  }
 
-.icon-arrow-down {
+.btn-arrow-down {
+    background: url(".././images/icon-arrow-down.svg");
     position: absolute;
-    width: 24px;
-    height: 16px;
+    height: 8px;
     right: 18px;
     top: 50%;
     transform: translateY(-50%);
