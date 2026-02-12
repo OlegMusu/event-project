@@ -145,7 +145,7 @@ searchInp.addEventListener('input', () => {
 
 async function getEvents() {
     try {
-        const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&classificationName=music&page-size=${pageLimit}&page=${page}&source=universe`);
+        const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&classificationName=music&size=${pageLimit}&page=${page}&source=universe`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -155,6 +155,16 @@ async function getEvents() {
         console.error('Error fetching events:', error);
         return[];
     };
+}
+
+function renderEvents(events) {
+    const markap = events.map(event => {
+        const imgUrl = getEventImg(event);
+
+        return `...`;
+    }).join('');
+
+    eventContainer.insertAdjacentHTML('beforeend', markap);
 }
 
 function getEventImg(event) {
@@ -187,10 +197,22 @@ function renderEvents(events) {
     eventContainer.innerHTML = markap
 }
 
-const loadMore = () => {
-    page +- 1;
-    getEvents();
-}
+const loadMore = async () => {
+    page += 1;
+
+    const data = await getEvents();
+
+    if (!data?._embedded?.events) {
+        btnLoad.style.display = 'none';
+        return;
+    }
+
+    const newEvents = data._embedded.events;
+
+    allEvents = [...allEvents, ...newEvents];
+
+    renderEvents(newEvents); // рендеримо тільки нові
+};
 
 btnLoad.addEventListener("click", loadMore)
 
