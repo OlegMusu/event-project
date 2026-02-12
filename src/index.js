@@ -7,7 +7,6 @@ const helperBlock = document.querySelector('.search-helper');
 const inputCountries = document.querySelector('.input-countries');
 const btnOpenCountries = document.querySelector('.btn-arrow-down');
 const countriesBlock = document.querySelector('.countries-block');
-const btnLoad = document.querySelector('.btn-load');
 const searchInp = document.querySelector('.header-search');
 const searchBtn = document.querySelector('.search-btn');
 
@@ -157,16 +156,6 @@ async function getEvents() {
     };
 }
 
-function renderEvents(events) {
-    const markap = events.map(event => {
-        const imgUrl = getEventImg(event);
-
-        return `...`;
-    }).join('');
-
-    eventContainer.insertAdjacentHTML('beforeend', markap);
-}
-
 function getEventImg(event) {
     const img =
         event.images.find(img => img.ratio === '4_3') ||
@@ -196,25 +185,6 @@ function renderEvents(events) {
     }).join('')
     eventContainer.innerHTML = markap
 }
-
-const loadMore = async () => {
-    page += 1;
-
-    const data = await getEvents();
-
-    if (!data?._embedded?.events) {
-        btnLoad.style.display = 'none';
-        return;
-    }
-
-    const newEvents = data._embedded.events;
-
-    allEvents = [...allEvents, ...newEvents];
-
-    renderEvents(newEvents); // рендеримо тільки нові
-};
-
-btnLoad.addEventListener("click", loadMore)
 
 async function getEventById(id) {
     try {
